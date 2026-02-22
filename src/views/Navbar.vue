@@ -7,7 +7,6 @@ export default {
   setup() {
     const router = useRouter();
 
-    
     const contactBtn = () => {
       router.push({ name: "Contact" });
     };
@@ -27,7 +26,7 @@ export default {
 <template>
   <nav>
     <button
-      class="absolute bg-blue-950 text-white p-1 rounded-md w-8 m-2 hover:bg-blue-900"
+      class="absolute bg-blue-950 text-white p-1 rounded-md w-8 m-2 hover:bg-blue-900 duration-70 ease-in active:bg-blue-700"
       @click="navbarClose"
     >
       <svg
@@ -45,17 +44,32 @@ export default {
         />
       </svg>
     </button>
-    <div class="bg-blue-900 text-white">
-    <div class="flex justify-evenly items-center flex-col p-2 md:flex-row gap-2" v-show="navbar">
-      <router-link class="hover:bg-cyan-800 rounded-md p-1 hover:text-white" :to="{ name: 'Home' }">HOME</router-link>
-      <router-link class="hover:bg-cyan-800 rounded-md p-1 hover:text-white" :to="{ name: 'About' }">ABOUT</router-link>
-      <router-link class="hover:bg-cyan-800 rounded-md p-1 hover:text-white" :to="{ name: 'Menu' }">MENU</router-link>
-      <button
-        @click="contactBtn"
-        class="bg-blue-950 text-white p-1 rounded-md hover:bg-blue-900 w-28"
+    <div class="bg-blue-900 text-white p-0.5" v-show="navbar">
+      <div
+        class="flex justify-evenly items-center flex-col p-2 md:flex-row gap-2"
+        
       >
-        Contact Me
-      </button>
+        <router-link
+          class="hover:bg-blue-800 rounded-md p-1 hover:text-white active:bg-blue-800 duration-300 ease-in"
+          :to="{ name: 'Home' }"
+          >HOME</router-link
+        >
+        <router-link
+          class="hover:bg-blue-800 rounded-md p-1 hover:text-white duration-300 ease-in"
+          :to="{ name: 'About' }"
+          >ABOUT</router-link
+        >
+        <router-link
+          class="hover:bg-blue-800 rounded-md p-1 hover:text-white duration-300 ease-in"
+          :to="{ name: 'Menu' }"
+          >MENU</router-link
+        >
+        <button
+          @click="contactBtn"
+          class="bg-blue-950 text-white p-1 rounded-md hover:bg-blue-900 w-28 duration-300 ease-in active:bg-blue-600"
+        >
+          CONTACT US
+        </button>
       </div>
     </div>
   </nav>
