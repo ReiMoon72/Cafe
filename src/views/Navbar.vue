@@ -7,11 +7,12 @@ export default {
   setup() {
     const router = useRouter();
 
-    //For Button
+    
     const contactBtn = () => {
       router.push({ name: "Contact" });
     };
 
+    //For Button
     const navbar = ref(true);
 
     const navbarClose = () => {
