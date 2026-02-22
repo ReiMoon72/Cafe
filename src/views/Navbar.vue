@@ -7,6 +7,7 @@ export default {
   setup() {
     const router = useRouter();
 
+    //For Button
     const contactBtn = () => {
       router.push({ name: "Contact" });
     };
@@ -25,7 +26,7 @@ export default {
 <template>
   <nav>
     <button
-      class="absolute bg-blue-950 text-white p-1 rounded-md w-8 m-2"
+      class="absolute bg-blue-950 text-white p-1 rounded-md w-8 m-2 hover:bg-blue-900"
       @click="navbarClose"
     >
       <svg
@@ -43,11 +44,11 @@ export default {
         />
       </svg>
     </button>
-    <div class="md:block">
-    <div class="flex justify-evenly items-center p-2 md:flex-col gap-2" v-show="navbar">
-      <router-link :to="{ name: 'Home' }">HOME</router-link>
-      <router-link :to="{ name: 'About' }">ABOUT</router-link>
-      <router-link :to="{ name: 'Menu' }">MENU</router-link>
+    <div class="bg-blue-900 text-white">
+    <div class="flex justify-evenly items-center flex-col p-2 md:flex-row gap-2" v-show="navbar">
+      <router-link class="hover:bg-cyan-800 rounded-md p-1 hover:text-white" :to="{ name: 'Home' }">HOME</router-link>
+      <router-link class="hover:bg-cyan-800 rounded-md p-1 hover:text-white" :to="{ name: 'About' }">ABOUT</router-link>
+      <router-link class="hover:bg-cyan-800 rounded-md p-1 hover:text-white" :to="{ name: 'Menu' }">MENU</router-link>
       <button
         @click="contactBtn"
         class="bg-blue-950 text-white p-1 rounded-md hover:bg-blue-900 w-28"
