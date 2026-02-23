@@ -5,6 +5,9 @@ import Navbar from "../views/Navbar.vue";
 import About from "../views/About.vue";
 import Contact from "../views/Contact.vue";
 import Menu from "../views/Menu.vue";
+import Offers from "../views/Offers.vue";
+import Foods from "../views/Foods.vue";
+import Drinks from "../views/Drinks.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +36,21 @@ const router = createRouter({
         path: '/menu',
         name: 'Menu',
         component: Menu
+    },
+    {
+        path: '/offers',
+        name: 'Offers',
+        component: Offers 
+    },
+    {
+        path: '/foods',
+        name: 'Foods',
+        component: Foods
+    },
+    {
+        path: '/drinks',
+        name: 'Drinks',
+        component: Drinks 
     }
     ]
 })
