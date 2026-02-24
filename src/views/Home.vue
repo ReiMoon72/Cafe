@@ -12,7 +12,7 @@ export default {
     };
 
     const menuBtn = () => {
-      router.push({ name: "Contact" });
+      router.push({ name: "Menu" });
     };
 
     const foodBtn = () => {
@@ -70,7 +70,7 @@ export default {
         <h1 class="text-2xl"><b>Lots of Food</b></h1>
         <p class="p-1">Lots of food brings endless flavors to the table.</p>
         <button
-          class="bg-red-500 text-white p-1.5 w-20 rounded-md"
+          class="bg-red-500 text-white p-1.5 w-20 rounded-md hover:bg-red-700 hover:transition duration-300 ease-in-out"
           @click="foodBtn"
         >
           Foods
@@ -83,7 +83,7 @@ export default {
           Refreshing drinks keep you cool and energized all day.
         </p>
         <button
-          class="bg-blue-600 text-white p-1.5 w-20 rounded-md"
+          class="bg-blue-600 text-white p-1.5 w-20 rounded-md hover:bg-blue-800 hover:transition duration-300 ease-in-out"
           @click="drinkBtn"
         >
           Drink
@@ -93,11 +93,11 @@ export default {
   </div>
 
   <!--Special Offers-->
-  <div class="bg-blue-950 h-220 md:h-115">
+  <div class="bg-blue-950 h-227 md:h-119">
     <h1 class="text-center text-white text-3xl p-5">
       <b>Special Offers</b>
     </h1>
-    <div class="flex justify-around items-center text-center flex-col gap-2 text-white md:flex-row">
+    <div class="flex justify-around items-center text-center flex-col gap-4 text-white md:flex-row">
       <!--20% Cake Discount-->
       <div class="bg-gray-800 p-5 rounded-md">
         <h2 class="text-2xl"><b>20% Cake Discount</b></h2>

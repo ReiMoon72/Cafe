@@ -8,7 +8,7 @@ export default {
     const router = useRouter();
 
     const contactBtn = () => {
-      router.push({ name: "Contact" });
+      router.push({ name: "Offers" });
     };
 
     //For Button
@@ -57,7 +57,7 @@ export default {
         <router-link
           class="hover:bg-blue-800 rounded-md p-1 hover:text-white duration-300 ease-in"
           :to="{ name: 'About' }"
-          >ABOUT</router-link
+          >ABOUT US</router-link
         >
         <router-link
           class="hover:bg-blue-800 rounded-md p-1 hover:text-white duration-300 ease-in"
@@ -66,9 +66,9 @@ export default {
         >
         <button
           @click="contactBtn"
-          class="bg-blue-950 text-white p-1 rounded-md hover:bg-blue-900 w-28 duration-300 ease-in active:bg-blue-600"
+          class="bg-blue-950 text-white p-1 rounded-md hover:bg-blue-900 w-35 duration-300 ease-in active:bg-blue-600"
         >
-          CONTACT US
+          SPECIAL OFFERS  
         </button>
       </div>
     </div>
