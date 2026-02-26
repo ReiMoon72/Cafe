@@ -133,7 +133,7 @@ export default {
       <div class="bg-gray-800 p-3 rounded-md">
         <h2 class="text-2xl"><b>Anniversary Discount <br> Special</b></h2>
         <p>
-          It’s your Anniversary! To thank <br />
+          It's your Anniversary! To thank <br />
           you for your love and <br />
           support, we're <br />
           offering exclusive <br />
