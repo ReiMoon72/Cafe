@@ -8,7 +8,7 @@ export default {
     const router = useRouter();
 
     const cotactBtn = () => {
-      router.push({ name: "Contact" });
+      router.push({ name: "Order" });
     };
 
     const menuBtn = () => {
@@ -46,7 +46,7 @@ export default {
         class="bg-cyan-900 text-white p-2 m-1 rounded-sm cursor-pointer"
         @click="cotactBtn"
       >
-        <b>Contact</b>
+        <b>Order Now!!</b>
       </button>
       <button
         class="bg-gray-700 text-white p-2 w-20 rounded-sm cursor-pointer"
