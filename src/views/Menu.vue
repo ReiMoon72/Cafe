@@ -9,7 +9,10 @@ export default {
     const pods = ref(false);
     const Latte = ref(false);
     const Americano = ref(false);
-    const Expresso = ref(false)
+    const Expresso = ref(false);
+    const Classic = ref(false);
+    const Taro = ref(false);
+    const Matchaaa = ref(false)
 
     const kope = () => {
       koffee.value = true;
@@ -45,14 +48,38 @@ export default {
       Americano.value = false;
     };
 
-    const ExpressooBtn = () =>{
-      Expresso.value = true
-    }
+    const ExpressooBtn = () => {
+      Expresso.value = true;
+    };
 
     const ExpressoCloseBtn = () => {
       Expresso.value = false;
     };
 
+    const classicBtn = () => {
+      Classic.value = true;
+    };
+
+    const clasBtn = () => {
+      Classic.value = false;
+    };
+
+    const taroBtn = () => {
+      Taro.value = true;
+    };
+
+    const torocloseBtn = () => {
+      Taro.value = false;
+    };
+
+    const matchabtn = () =>{
+      Matchaaa.value = true
+    }
+
+    const matchBtnClose= () =>{
+      Matchaaa.value = false
+    }
+ 
     return {
       koffee,
       Milktea,
@@ -60,6 +87,7 @@ export default {
       kope,
       Milk,
       foods,
+      // Coffee
       latteBtn,
       Latte,
       closeBtn,
@@ -68,7 +96,17 @@ export default {
       AmenicanoBTn,
       Expresso,
       ExpressoCloseBtn,
-      ExpressooBtn
+      ExpressooBtn,
+      // For milktea
+      classicBtn,
+      Classic,
+      clasBtn,
+      Taro,
+      torocloseBtn,
+      taroBtn,
+      Matchaaa,
+      matchBtnClose,
+      matchabtn
     };
   },
 };
@@ -191,7 +229,7 @@ export default {
       </p>
       <p class="font-semibold">Available Iced and Hot</p>
       <button
-        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
         @click="closeamericanoBtn"
       >
         Close
@@ -220,7 +258,7 @@ export default {
       </p>
       <p class="font-semibold">Available Iced and Hot</p>
       <button
-        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
         @click="ExpressoCloseBtn"
       >
         Close
@@ -234,17 +272,118 @@ export default {
     class="flex justify-around items-center flex-col gap-3 text-center p-5 md:flex-row"
     v-if="Milktea"
   >
-    <div>
+    <div class="flex flex-col items-center gap-2">
       <img src="/public/images/milktea-images/klasik.jpg" />
-      <button>Classic Black Milk Tea</button>
+      <button
+        class="bg-stone-200 p-1.5 rounded-md cursor-pointer hover:bg-stone-400 active:bg-stone-300 transition duration-250 ease-in-out"
+        @click="classicBtn"
+      >
+        Classic Milk Tea
+      </button>
     </div>
-    <div>
-      <img src="/public/images/milktea-images/ube.jpg" />
-      <button>Taro Brown Sugar</button>
+    <div class=" flex flex-col items-center gap-2">
+      <img class="h-45" src="/public/images/milktea-images/ube.jpg" />
+      <button
+        class="bg-purple-700 p-1.5 w-25 rounded-md text-white cursor-pointer hover:bg-purple-800 active:bg-purple-600 transition duration-250 ease-in-out"
+        @click="taroBtn"
+      >
+        Taro
+      </button>
     </div>
-    <div>
-      <img src="/public/images/milktea-images/Matcha.jpg" />
-      <button>Matcha</button>
+    <div class=" flex flex-col items-center gap-2">
+      <img class="h-48" src="/public/images/milktea-images/Matcha.jpg" />
+      <button
+        class="bg-green-900 p-1.5 w-25 text-white rounded-md cursor-pointer hover:bg-green-950 active:bg-green-800 transition duration-250 ease-in-out"
+        @click="matchabtn"
+      >
+        Matcha
+      </button>
+    </div>
+  </div>
+
+  <!--Milk Tea Pop up-->
+
+  <!--Classic Milk Tea-->
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    v-show="Classic"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-4">Classic MilkTea</h1>
+      <img
+        class="w-40 rounded-full mx-auto mb-4"
+        src="/public/images/milktea-images/klasik.jpg"
+      />
+      <p class="mb-2">
+        Class Milk Tea is a smooth mix of black tea and creamy milk, lightly
+        sweetened and served with chewy pearls—a timeless favorite for milk tea
+        lovers. Its comforting taste makes it the perfect drink to enjoy
+        anytime, whether you’re relaxing or on the go.
+      </p>
+      <p class="font-semibold">Available Only Ice/Cold</p>
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="clasBtn"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!--Taro-->
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    v-show="Taro"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-4">Taro</h1>
+      <img
+        class="w-40 rounded-full mx-auto mb-4"
+        src="/public/images/milktea-images/ube.jpg"
+      />
+      <p class="mb-2">
+        Taro Milk Tea is a creamy, purple-hued drink made from sweet taro root
+        blended with milk and tea. Its naturally nutty, vanilla-like flavor and
+        smooth texture make it a unique favorite, offering both comfort and a
+        touch of fun in every sip.
+      </p>
+      <p class="font-semibold">Available Only Ice/Cold</p>
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="torocloseBtn"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!--Matcha-->
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    v-show="Matchaaa"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-4">Matcha</h1>
+      <img
+        class="w-40 rounded-full mx-auto mb-4"
+        src="/public/images/milktea-images/Matcha.jpg"
+      />
+      <p class="mb-2">
+        Matcha Milk Tea is a creamy blend of finely ground green tea and smooth
+        milk, offering a rich, earthy flavor with a hint of sweetness. Its
+        vibrant green color and refreshing taste make it both energizing and
+        comforting, perfect for tea lovers seeking something unique.
+      </p>
+      <p class="font-semibold">Available Only Ice/Cold</p>
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="matchBtnClose"
+      >
+        Close
+      </button>
     </div>
   </div>
 

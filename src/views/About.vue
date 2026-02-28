@@ -11,7 +11,7 @@ export default {
   <!--Head-->
 
   <div
-    class="w-341.3 h-90 bg-[url('/images/cafe-interior.jpg')] bg-cover bg-center"
+    class="w-341.3 h-90 bg-[url('/images/dark-l.png')] bg-cover bg-center"
   >
     <!--for image-->
     <div class="flex justify-center items-center text-center p-30 md:flx-row">
