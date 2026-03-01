@@ -13,6 +13,9 @@ export default {
     const Classic = ref(false);
     const Taro = ref(false);
     const Matchaaa = ref(false);
+    const Pizzza = ref(false);
+    const Lazagna = ref(false);
+    const  Chickem = ref(false)
 
     //Coffee
     const kope = () => {
@@ -83,6 +86,30 @@ export default {
       Matchaaa.value = false;
     };
 
+    const PiizaBtn = () => {
+      Pizzza.value = true;
+    };
+
+    const ClosePiizaBtn = () => {
+      Pizzza.value = false;
+    };
+
+    const LasagnaBTn = () => {
+      Lazagna.value = true;
+    };
+
+    const LasagnaClose = () => {
+      Lazagna.value = false;
+    };
+
+    const CheckenBTnOpen = () =>{
+      Chickem.value = true
+    }
+
+    const ChickinBtn = () =>{
+      Chickem.value = false
+    }
+
     return {
       koffee,
       Milktea,
@@ -110,6 +137,16 @@ export default {
       Matchaaa,
       matchBtnClose,
       matchabtn,
+      //Foods,
+      Pizzza,
+      PiizaBtn,
+      ClosePiizaBtn,
+      Lazagna,
+      LasagnaBTn,
+      LasagnaClose,
+      Chickem,
+      CheckenBTnOpen,
+      ChickinBtn
     };
   },
 };
@@ -184,8 +221,6 @@ export default {
     </div>
   </div>
 
-  
-
   <!--pods-->
   <div
     class="flex justify-around items-center flex-col gap-3 text-center p-5 md:flex-row"
@@ -193,15 +228,30 @@ export default {
   >
     <div>
       <img class="w-50" src="/public/images/foods/pizza.png" />
-      <button>Pizza</button>
+      <button
+        class="bg-red-600 p-1.5 m-1 w-22 text-white rounded-md cursor-pointer hover:bg-red-700 transition duration-300 ease-in-out active:bg-red-500"
+        @click="PiizaBtn"
+      >
+        Pizza
+      </button>
     </div>
     <div>
       <img src="/public/images/foods/lasagna.jpg" />
-      <button>Lasagna</button>
+      <button
+        class="bg-yellow-600 p-1.5 m-1 w-22 text-white rounded-md cursor-pointer hover:bg-yellow-700 transition duration-300 ease-in-out active:bg-yellow-500"
+        @click="LasagnaBTn"
+      >
+        Lasagna
+      </button>
     </div>
     <div>
       <img src="/public/images/foods/manok.jpg" />
-      <button>Fried Chiken</button>
+      <button
+        class="bg-amber-500 p-1.5 m-1 w-29 text-white rounded-md cursor-pointer hover:bg-amber-600 transition duration-300 ease-in-out active:bg-amber-400"
+        @click="CheckenBTnOpen"
+      >
+        Fried Chiken
+      </button>
     </div>
   </div>
 
@@ -406,6 +456,92 @@ export default {
       <button
         class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
         @click="matchBtnClose"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!--Food Pop ip-->
+  <!--Pizza-->
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    v-show="Pizzza"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-4">Pizza</h1>
+      <img
+        class="w-40 rounded-full mx-auto mb-4"
+        src="/public/images/foods/pizza.png"
+      />
+      <p class="mb-2">
+        Indulge in oven-fresh pizza with a golden, crispy crust, gooey
+        mozzarella, and hand-picked toppings. From classic favorites to bold
+        gourmet creations, every slice is made with passion and the finest
+        ingredients. Perfect for sharing, celebrating, or simply satisfying your
+        cravings—our pizza brings joy to every bite.
+      </p>
+      <p class="font-semibold">Available Only Ice/Cold</p>
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="ClosePiizaBtn"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!--Lasagna-->
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    v-show="Lazagna"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-4">Lagana</h1>
+      <img
+        class="w-40 rounded-full mx-auto mb-4"
+        src="/public/images/foods/lasagna.jpg"
+      />
+      <p class="mb-2">
+        Layers of tender pasta, rich meat sauce, creamy béchamel, and melted
+        cheese come together in our classic lasagna. Baked to perfection, it’s a
+        hearty dish that delivers comfort, flavor, and satisfaction in every
+        bite."
+      </p>
+      <p class="font-semibold">Available Only Ice/Cold</p>
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="LasagnaClose"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!--Fried Chicken-->
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    v-show="Chickem"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      <h1 class="text-3xl font-bold mb-4">Fried Chicken</h1>
+      <img
+        class="w-40 rounded-full mx-auto mb-4"
+        src="/public/images/foods/manok.jpg" 
+      />
+      <p class="mb-2">
+        Golden, crispy fried chicken cooked to perfection—juicy on the inside,
+        crunchy on the outside. Seasoned with a blend of spices, each bite
+        delivers irresistible flavor and satisfying crunch. A timeless comfort
+        food that's perfect for sharing or savoring solo
+      </p>
+      <p class="font-semibold">Available Only Ice/Cold</p>
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="ChickinBtn"
       >
         Close
       </button>
