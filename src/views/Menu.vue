@@ -12,8 +12,9 @@ export default {
     const Expresso = ref(false);
     const Classic = ref(false);
     const Taro = ref(false);
-    const Matchaaa = ref(false)
+    const Matchaaa = ref(false);
 
+    //Coffee
     const kope = () => {
       koffee.value = true;
       Milktea.value = false;
@@ -56,6 +57,8 @@ export default {
       Expresso.value = false;
     };
 
+    //Milk Tea
+
     const classicBtn = () => {
       Classic.value = true;
     };
@@ -72,14 +75,14 @@ export default {
       Taro.value = false;
     };
 
-    const matchabtn = () =>{
-      Matchaaa.value = true
-    }
+    const matchabtn = () => {
+      Matchaaa.value = true;
+    };
 
-    const matchBtnClose= () =>{
-      Matchaaa.value = false
-    }
- 
+    const matchBtnClose = () => {
+      Matchaaa.value = false;
+    };
+
     return {
       koffee,
       Milktea,
@@ -106,7 +109,7 @@ export default {
       taroBtn,
       Matchaaa,
       matchBtnClose,
-      matchabtn
+      matchabtn,
     };
   },
 };
@@ -178,6 +181,27 @@ export default {
       >
         Expresso
       </button>
+    </div>
+  </div>
+
+  
+
+  <!--pods-->
+  <div
+    class="flex justify-around items-center flex-col gap-3 text-center p-5 md:flex-row"
+    v-if="pods"
+  >
+    <div>
+      <img class="w-50" src="/public/images/foods/pizza.png" />
+      <button>Pizza</button>
+    </div>
+    <div>
+      <img src="/public/images/foods/lasagna.jpg" />
+      <button>Lasagna</button>
+    </div>
+    <div>
+      <img src="/public/images/foods/manok.jpg" />
+      <button>Fried Chiken</button>
     </div>
   </div>
 
@@ -266,6 +290,7 @@ export default {
     </div>
   </div>
 
+  <!--Pop Up Milk Tea-->
   <!--Milk Tea-->
 
   <div
@@ -281,7 +306,7 @@ export default {
         Classic Milk Tea
       </button>
     </div>
-    <div class=" flex flex-col items-center gap-2">
+    <div class="flex flex-col items-center gap-2">
       <img class="h-45" src="/public/images/milktea-images/ube.jpg" />
       <button
         class="bg-purple-700 p-1.5 w-25 rounded-md text-white cursor-pointer hover:bg-purple-800 active:bg-purple-600 transition duration-250 ease-in-out"
@@ -290,7 +315,7 @@ export default {
         Taro
       </button>
     </div>
-    <div class=" flex flex-col items-center gap-2">
+    <div class="flex flex-col items-center gap-2">
       <img class="h-48" src="/public/images/milktea-images/Matcha.jpg" />
       <button
         class="bg-green-900 p-1.5 w-25 text-white rounded-md cursor-pointer hover:bg-green-950 active:bg-green-800 transition duration-250 ease-in-out"
@@ -384,25 +409,6 @@ export default {
       >
         Close
       </button>
-    </div>
-  </div>
-
-  <!--pods-->
-  <div
-    class="flex justify-around items-center flex-col gap-3 text-center p-5 md:flex-row"
-    v-if="pods"
-  >
-    <div>
-      <img class="w-50" src="/public/images/foods/pizza.png" />
-      <button>Pizza</button>
-    </div>
-    <div>
-      <img src="/public/images/foods/lasagna.jpg" />
-      <button>Lasagna</button>
-    </div>
-    <div>
-      <img src="/public/images/foods/manok.jpg" />
-      <button>Fried Chiken</button>
     </div>
   </div>
 </template>

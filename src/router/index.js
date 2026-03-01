@@ -1,62 +1,52 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from '../views/Home.vue';
-import Navbar from "../views/Navbar.vue";
-import About from "../views/About.vue";
-import Contact from "../views/Contact.vue";
-import Menu from "../views/Menu.vue";
-import Offers from "../views/Offers.vue";
-import Foods from "../views/Foods.vue";
-import Drinks from "../views/Drinks.vue";
-import Order from "../views/Order.vue";
-
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
     {
         path: '/',
         name: 'Home',
-        component: Home
+        component: () => import ('../views/Home.vue')
     },
     {
         path: '/navbar',
         name: 'Navbar',
-        component: Navbar
+        component: () => import ("../views/Navbar.vue")
     },
     {
         path: '/about',
         name: 'About',
-        component: About
+        component: () => import ("../views/About.vue")
     },
     {
         path: '/contact',
         name: 'Contact',
-        component: Contact
+        component: () => import ("../views/Contact.vue")
     },
     {
         path: '/menu',
         name: 'Menu',
-        component: Menu
+        component: () => import ("../views/Menu.vue")
     },
     {
         path: '/offers',
         name: 'Offers',
-        component: Offers 
+        component: () => import ("../views/Offers.vue") 
     },
     {
         path: '/foods',
         name: 'Foods',
-        component: Foods
+        component: () => import ("../views/Foods.vue")
     },
     {
         path: '/drinks',
         name: 'Drinks',
-        component: Drinks 
+        component: () => import ("../views/Drinks.vue") 
     },
     {
         path: '/order',
         name: 'Order',
-        component: Order
+        component: () => import ("../views/Order.vue")
     }
     ]
 })
