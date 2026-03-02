@@ -46,7 +46,7 @@ export default {
     </button>
     <div class="bg-blue-900 text-white p-0.5" v-show="navbar">
       <div
-        class="flex justify-evenly items-center flex-col p-2 md:flex-row gap-2"
+        class="flex justify-around items-center flex-col p-2 md:flex-row gap-2"
         
       >
         <router-link

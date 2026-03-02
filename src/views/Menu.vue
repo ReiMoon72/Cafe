@@ -530,7 +530,7 @@ export default {
       <h1 class="text-3xl font-bold mb-4">Fried Chicken</h1>
       <img
         class="w-40 rounded-full mx-auto mb-4"
-        src="/public/images/foods/manok.jpg" 
+        src="/public/images/foods/manok.jpg"
       />
       <p class="mb-2">
         Golden, crispy fried chicken cooked to perfection—juicy on the inside,

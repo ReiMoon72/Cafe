@@ -69,12 +69,6 @@ export default {
         <img class="w-90 p-5 rounded-xl" src="/public/images/pod.png" />
         <h1 class="text-2xl"><b>Lots of Food</b></h1>
         <p class="p-1">Lots of food brings endless flavors to the table.</p>
-        <button
-          class="bg-red-500 text-white p-1.5 w-20 rounded-md hover:bg-red-700 hover:transition duration-300 ease-in-out"
-          @click="foodBtn"
-        >
-          Foods
-        </button>
       </div>
       <div class="text-center">
         <img class="w-90 p-5 rounded-xl" src="/public/images/inom.png" />
@@ -82,64 +76,49 @@ export default {
         <p class="p-1">
           Refreshing drinks keep you cool and energized all day.
         </p>
-        <button
-          class="bg-blue-600 text-white p-1.5 w-20 rounded-md hover:bg-blue-800 hover:transition duration-300 ease-in-out"
-          @click="drinkBtn"
-        >
-          Drink
-        </button>
       </div>
     </div>
   </div>
 
   <!--Special Offers-->
-  <div class="bg-blue-950 h-227 md:h-119">
-    <h1 class="text-center text-white text-3xl p-5">
+  <div class="bg-blue-950 h-200 md:h-100">
+    <h1 class="text-center text-white text-3xl p-4">
       <b>Special Offers</b>
     </h1>
-    <div class="flex justify-around items-center text-center flex-col gap-4 text-white md:flex-row">
+    <div
+      class="flex justify-around items-center text-center flex-col gap-2 text-white md:flex-row md:text-justify md:p-3"
+    >
       <!--20% Cake Discount-->
-      <div class="bg-gray-800 p-5 rounded-md">
+      <div class="bg-gray-800 w-80 p-5 rounded-md text-center">
         <h2 class="text-2xl"><b>20% Cake Discount</b></h2>
         <p>
-          Indulge in your favorite slice <br />
-          of happiness with <br />
-          our special 20% cake
-          <br />
-          discount! Whether you're <br />
-          craving chocolate cakes, <br />
-          cheesecake, or
-          <br />
-          something fruity, now is the <br />
-          perfect time to enjoy <br />
-          more sweetness for
-          <br />
+          Indulge in your favorite slice of happiness with our special 20% cake
+          discount! Whether you're craving chocolate cakes, cheesecake, or
+          something fruity, now is the perfect time to enjoy more sweetness for
           less
         </p>
       </div>
       <!--50% Couple Discount-->
-      <div class="bg-gray-800 p-5 rounded-md">
+      <div class="bg-gray-800 p-5 rounded-md text-center w-80">
         <h2 class="text-2xl"><b>50% Couple Discount</b></h2>
         <p>
-          Celebrate love with a special treat! <br />
-          Couples enjoy 50% OFF and create <br />
-          sweet memories <br />
-          together. Bring your <br />
-          favorite person and let love <br />
-          (and dessert) fill the table.
+          Celebrate love with a special treat! Couples enjoy 50% OFF and create
+          sweet memories together. Bring your favorite person and let love (and
+          dessert) fill the table.
         </p>
       </div>
       <!--Anniversary Discount Special-->
-      <div class="bg-gray-800 p-3 rounded-md">
-        <h2 class="text-2xl"><b>Anniversary Discount <br> Special</b></h2>
+      <div class="bg-gray-800 p-3 rounded-md text-center w-80">
+        <h2 class="text-2xl">
+          <b
+            >Anniversary Discount <br />
+            Special</b
+          >
+        </h2>
         <p>
-          It's your Anniversary! To thank <br />
-          you for your love and <br />
-          support, we're <br />
-          offering exclusive <br />
-          discounts on your favorite treats. <br />
-          Come celebrate <br />
-          with us and make the day extra sweet! <br />
+          It's your Anniversary! To thank you for your love and support, we're
+          offering exclusive discounts on your favorite treats. Come celebrate
+          with us and make the day extra sweet!
         </p>
       </div>
     </div>
