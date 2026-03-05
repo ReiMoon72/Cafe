@@ -7,6 +7,7 @@ export default {
     const foods = ref(false);
     const drinks = ref(false);
     const aniverary = ref(false);
+    const userName = ref("");
 
     const coffeee = () => {
       foods.value = false;
@@ -22,11 +23,30 @@ export default {
       aniverary.value = false;
     };
 
-    const receipt = () =>{
-      aniverary.value = true
-    }
+    const receipt = () => {
+      aniverary.value = true;
+    };
 
-    return { foods, drinks, coffeee, ffooodss, aniverary, closeSary, receipt };
+    const drenks = ref([
+      { name: "Latte", price: 150 },
+      { name: "Amerikano", price: 140 },
+      { name: "Espresso", price: 90 },
+      { name: "Classic MilkTea", price: 100 },
+      { name: "Taro", price: 110 },
+      {name: "Matcha", price: 120}
+    ])
+
+    return {
+      foods,
+      drinks,
+      coffeee,
+      ffooodss,
+      aniverary,
+      closeSary,
+      receipt,
+      userName,
+      drenks
+    };
   },
 };
 </script>
@@ -62,6 +82,7 @@ export default {
           class="border border-blue-500 rounded-md p-1 text-center"
           type="text"
           placeholder="Enter name"
+          v-model="userName"
         />
         <label>Foor or Coffee</label>
         <button class="bg-red-700 p-1 rounded-md text-white" @click="coffeee">
@@ -95,7 +116,9 @@ export default {
           <option>Lasagna</option>
           <option>Fried Chiken</option>
         </select>
-        <button class="bg-gray-800 p-2 rounded-md w-25" @click="receipt">Submit</button>
+        <button class="bg-gray-800 p-2 rounded-md w-25" @click="receipt">
+          Submit
+        </button>
       </form>
     </div>
   </div>
@@ -105,7 +128,6 @@ export default {
     v-show="aniverary"
   >
     <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
-      
       <button
         class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
         @click="closeSary"
