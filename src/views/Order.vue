@@ -4,22 +4,29 @@ import { ref, reactive } from "vue";
 export default {
   name: "Order",
   setup() {
-    //I need to do a Array for a Price
+    const foods = ref(false);
+    const drinks = ref(false);
+    const aniverary = ref(false);
 
-    const drenks = ref(true);
-    const pooods = ref(false);
-
-    const PoodsIs = () => {
-      drenks.value = false;
-      pooods.value = true;
+    const coffeee = () => {
+      foods.value = false;
+      drinks.value = true;
     };
 
-    const CoffeeIs = () => {
-      drenks.value = true;
-      pooods.value = false;
+    const ffooodss = () => {
+      foods.value = true;
+      drinks.value = false;
     };
 
-    return { PoodsIs, CoffeeIs, drenks, pooods };
+    const closeSary = () => {
+      aniverary.value = false;
+    };
+
+    const receipt = () =>{
+      aniverary.value = true
+    }
+
+    return { foods, drinks, coffeee, ffooodss, aniverary, closeSary, receipt };
   },
 };
 </script>
@@ -40,17 +47,36 @@ export default {
 
   <!--Order System-->
 
+  <div class="text-3xl text-center p-3">
+    <h1><b>Order Procedure</b></h1>
+  </div>
+
   <div>
     <div>
-      <form @click.prevent="">
+      <form
+        class="flex justify-center items-center flex-col p-7 gap-3 bg-blue-900 w-80 m-auto rounded-md text-white md:w-90"
+        @click.prevent=""
+      >
         <label>Enter your name</label>
-        <input type="" placeholder="Enter name" />
+        <input
+          class="border border-blue-500 rounded-md p-1 text-center"
+          type="text"
+          placeholder="Enter name"
+        />
         <label>Foor or Coffee</label>
-        <label>Coffee</label>
-        <input type="checkbox" :checked="drenks" @change="CoffeeIs" />
-        <label>Food</label>
-        <input type="checkbox" :checked="pooods" @change="PoodsIs" />
-        <select v-if="drenks">
+        <button class="bg-red-700 p-1 rounded-md text-white" @click="coffeee">
+          Coffee
+        </button>
+        <button
+          class="bg-orange-950 p-1 text-white w-13 rounded-md"
+          @click="ffooodss"
+        >
+          Food
+        </button>
+        <select
+          class="border border-red-500 rounded-md p-0.5 bg-gray-600"
+          v-show="drinks"
+        >
           <option>Choose a Drink</option>
           <option>Latte</option>
           <option>Amerikano</option>
@@ -60,13 +86,32 @@ export default {
           <option>Matcha</option>
         </select>
         <!--For foods-->
-        <select v-if="pooods">
+        <select
+          class="border border-orange-950 rounded-md p-0.5 bg-gray-800"
+          v-show="foods"
+        >
           <option>Choose a Foods</option>
           <option>Pizza</option>
           <option>Lasagna</option>
           <option>Fried Chiken</option>
         </select>
+        <button class="bg-gray-800 p-2 rounded-md w-25" @click="receipt">Submit</button>
       </form>
+    </div>
+  </div>
+
+  <div
+    class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-10"
+    v-show="aniverary"
+  >
+    <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
+      
+      <button
+        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
+        @click="closeSary"
+      >
+        Close
+      </button>
     </div>
   </div>
 </template>
