@@ -1,5 +1,5 @@
 <script>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 
 export default {
   name: "Order",
@@ -27,14 +27,31 @@ export default {
       aniverary.value = true;
     };
 
+    const closeRecept = () =>{
+      aniverary.value = false
+    };
+
+    const confirmOrderBtn = () =>{
+      alert("Your order has been placed!!")
+    }
+
+    const juiced = ref('')
+
+    const finalPrice = computed(() =>{
+      const drenk = drenks.value.find(p => p.name === juiced.value)
+      return part ? part.price : null
+    })
+
     const drenks = ref([
       { name: "Latte", price: 150 },
       { name: "Amerikano", price: 140 },
       { name: "Espresso", price: 90 },
       { name: "Classic MilkTea", price: 100 },
       { name: "Taro", price: 110 },
-      {name: "Matcha", price: 120}
-    ])
+      { name: "Matcha", price: 120 },
+    ]);
+
+
 
     return {
       foods,
@@ -45,7 +62,11 @@ export default {
       closeSary,
       receipt,
       userName,
-      drenks
+      drenks,
+      closeRecept,
+      confirmOrderBtn,
+      finalPrice,
+      juiced
     };
   },
 };
@@ -96,15 +117,14 @@ export default {
         </button>
         <select
           class="border border-red-500 rounded-md p-0.5 bg-gray-600"
-          v-show="drinks"
-        >
+          v-show="drinks" v-model="juiced">
           <option>Choose a Drink</option>
-          <option>Latte</option>
-          <option>Amerikano</option>
-          <option>Expresso</option>
-          <option>Classic MilkTea</option>
-          <option>Taro</option>
-          <option>Matcha</option>
+          <option value="Latte">Latte</option>
+          <option value="Amerikano">Americano</option>
+          <option value="Espresso">Expresso</option>
+          <option value="Classic MilkTea">Classic MilkTea</option>
+          <option value="Taro">Taro</option>
+          <option value="Matcha">Matcha</option>
         </select>
         <!--For foods-->
         <select
@@ -112,12 +132,12 @@ export default {
           v-show="foods"
         >
           <option>Choose a Foods</option>
-          <option>Pizza</option>
-          <option>Lasagna</option>
-          <option>Fried Chiken</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Lasagna">Lasagna</option>
+          <option value="Fried-Chiken">Fried Chiken</option>
         </select>
         <button class="bg-gray-800 p-2 rounded-md w-25" @click="receipt">
-          Submit
+          Receipt
         </button>
       </form>
     </div>
@@ -128,12 +148,22 @@ export default {
     v-show="aniverary"
   >
     <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
-      <button
-        class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-250 ease-in-out active:bg-blue-400"
-        @click="closeSary"
-      >
-        Close
-      </button>
+      <!--Navigation bar of receipt-->
+      <div class=" flex justify-between items-center">
+        <p class="text-2xl">Your Receipt</p>
+        <button class=" text-red-600 p-1 text-2xl hover:text-red-900 active:text-red-700 transition duration-250 ease-in-out" @click="closeRecept">X</button>
+      </div>
+      <hr>
+      <!--For the items-->
+      <div class="p-2">
+        <p>Name: {{ userName }}</p>
+        <p>Coffee Or Food Order: {{  }}</p>
+        <p v-if="finalPrice !== null">Price: ₱{{ finalPrice }}</p>
+      </div>
+      <!--For Button-->
+      <div class="text-white">
+        <button class=" bg-blue-700 w-30 p-1 rounded-md" @click="confirmOrderBtn">Confirm Order</button>
+      </div>
     </div>
   </div>
 </template>
