@@ -27,20 +27,20 @@ export default {
       aniverary.value = true;
     };
 
-    const closeRecept = () =>{
-      aniverary.value = false
+    const closeRecept = () => {
+      aniverary.value = false;
     };
 
-    const confirmOrderBtn = () =>{
-      alert("Your order has been placed!!")
-    }
+    const confirmOrderBtn = () => {
+      alert("Your order has been placed!!");
+    };
 
-    const juiced = ref('')
+    const juiced = ref("");
 
-    const finalPrice = computed(() =>{
-      const drenk = drenks.value.find(p => p.name === juiced.value)
-      return part ? part.price : null
-    })
+    const finalPrice = computed(() => {
+      const drenk = drenks.value.find((p) => p.name === juiced.value);
+      return drenk ? drenk.price : null;
+    });
 
     const drenks = ref([
       { name: "Latte", price: 150 },
@@ -51,7 +51,22 @@ export default {
       { name: "Matcha", price: 120 },
     ]);
 
+    const finalPriceFoods = computed(() => {
+      const fooood = foooods.value.find((p) => p.name === poooooods.value);
+      return fooood ? fooood.price : null;
+    });
 
+    const poooooods = ref("");
+
+    const foooods = ref([
+      { name: "Pizza", price: 300 },
+      { name: "Lasagna", price: 250 },
+      { name: "Fried-Chiken", price: 130 },
+    ]);
+
+    const FinalPriceOrder = computed(() =>{
+      return (finalPriceFoods.value ?? 0) + (finalPrice.value ?? 0)
+    })
 
     return {
       foods,
@@ -66,7 +81,11 @@ export default {
       closeRecept,
       confirmOrderBtn,
       finalPrice,
-      juiced
+      juiced,
+      foooods,
+      finalPriceFoods,
+      poooooods,
+      FinalPriceOrder
     };
   },
 };
@@ -117,7 +136,9 @@ export default {
         </button>
         <select
           class="border border-red-500 rounded-md p-0.5 bg-gray-600"
-          v-show="drinks" v-model="juiced">
+          v-show="drinks"
+          v-model="juiced"
+        >
           <option>Choose a Drink</option>
           <option value="Latte">Latte</option>
           <option value="Amerikano">Americano</option>
@@ -130,6 +151,7 @@ export default {
         <select
           class="border border-orange-950 rounded-md p-0.5 bg-gray-800"
           v-show="foods"
+          v-model="poooooods"
         >
           <option>Choose a Foods</option>
           <option value="Pizza">Pizza</option>
@@ -149,20 +171,33 @@ export default {
   >
     <div class="bg-white w-96 p-6 rounded-md shadow-lg text-center">
       <!--Navigation bar of receipt-->
-      <div class=" flex justify-between items-center">
+      <div class="flex justify-between items-center">
         <p class="text-2xl">Your Receipt</p>
-        <button class=" text-red-600 p-1 text-2xl hover:text-red-900 active:text-red-700 transition duration-250 ease-in-out" @click="closeRecept">X</button>
+        <button
+          class="text-red-600 p-1 text-2xl hover:text-red-900 active:text-red-700 transition duration-250 ease-in-out"
+          @click="closeRecept"
+        >
+          X
+        </button>
       </div>
-      <hr>
+      <hr />
       <!--For the items-->
       <div class="p-2">
         <p>Name: {{ userName }}</p>
-        <p>Coffee Or Food Order: {{  }}</p>
+        <p v-if="poooooods">Order: {{ poooooods }}</p>
+        <p v-if="juiced">Order: {{ juiced }}</p>
         <p v-if="finalPrice !== null">Price: ₱{{ finalPrice }}</p>
+        <p v-if="finalPriceFoods !== null">Price: ₱{{ finalPriceFoods }}</p>
+        <p>Final Price: {{ FinalPriceOrder }}</p>
       </div>
       <!--For Button-->
       <div class="text-white">
-        <button class=" bg-blue-700 w-30 p-1 rounded-md" @click="confirmOrderBtn">Confirm Order</button>
+        <button
+          class="bg-blue-700 w-30 p-1 rounded-md"
+          @click="confirmOrderBtn"
+        >
+          Confirm Order
+        </button>
       </div>
     </div>
   </div>
