@@ -33,6 +33,10 @@ export default {
 
     const confirmOrderBtn = () => {
       alert("Your order has been placed!!");
+      userName.value = ''
+      juiced.value = ''
+      poooooods.value = ''
+      console.log("Order is Success")
     };
 
     const juiced = ref("");

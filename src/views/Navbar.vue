@@ -26,7 +26,7 @@ export default {
 <template>
   <nav>
     <button
-      class="absolute bg-blue-950 text-white p-1 rounded-md w-8 m-2 hover:bg-blue-900 duration-70 ease-in active:bg-blue-700"
+      class="absolute bg-gray-950 text-white p-1 rounded-md w-8 m-2 hover:bg-gray-900 duration-70 ease-in active:bg-gray-700"
       @click="navbarClose"
     >
       <svg
@@ -44,29 +44,29 @@ export default {
         />
       </svg>
     </button>
-    <div class="bg-blue-900 text-white p-0.5" v-show="navbar">
+    <div class="bg-gray-800 text-white p-0.5" v-show="navbar">
       <div
         class="flex justify-around items-center flex-col p-2 md:flex-row gap-2"
         
       >
         <router-link
-          class="hover:bg-blue-800 rounded-md p-1 hover:text-white active:bg-blue-800 duration-300 ease-in"
+          class="hover:bg-gray-700 rounded-md p-1 hover:text-white active:bg-gray-800 duration-300 ease-in"
           :to="{ name: 'Home' }"
           >HOME</router-link
         >
         <router-link
-          class="hover:bg-blue-800 rounded-md p-1 hover:text-white duration-300 ease-in"
+          class="hover:bg-gray-700 rounded-md p-1 hover:text-white duration-300 ease-in"
           :to="{ name: 'About' }"
           >ABOUT US</router-link
         >
         <router-link
-          class="hover:bg-blue-800 rounded-md p-1 hover:text-white duration-300 ease-in"
+          class="hover:bg-gray-700 rounded-md p-1 hover:text-white duration-300 ease-in"
           :to="{ name: 'Menu' }"
           >MENU</router-link
         >
         <button
           @click="contactBtn"
-          class="bg-blue-950 text-white p-1 rounded-md hover:bg-blue-900 w-35 duration-300 ease-in active:bg-blue-600"
+          class="bg-gray-950 text-white p-1 rounded-md hover:bg-gray-900 w-35 duration-300 ease-in active:bg-gray-600"
         >
           SPECIAL OFFERS  
         </button>
